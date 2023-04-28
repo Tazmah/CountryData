@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import Explore from './Explore'
 import Countries from './Countries'
-import { useEffect, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { fetchFromApi } from './utils/fetchFromApi'
 
 const Feed = () => {
@@ -13,7 +13,7 @@ const Feed = () => {
         setCountries(data)
     }
 
-    useEffect(() => {
+    useMemo(() => {
         getData()
     }, [countries])
     return (

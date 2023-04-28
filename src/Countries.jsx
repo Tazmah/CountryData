@@ -1,8 +1,6 @@
-import { Grid, Stack, Typography } from '@mui/material'
+import { Stack } from '@mui/material'
 import React from 'react'
 import Country from './Country'
-import { fetchFromApi } from './utils/fetchFromApi'
-import { useState, useEffect } from 'react'
 
 const Countries = ({ countries, setcountries, searchTerm, select }) => {
     return (
@@ -16,15 +14,7 @@ const Countries = ({ countries, setcountries, searchTerm, select }) => {
             }}
         >
 
-            {/* {countries.filter((item) => {
-                {
-                    return searchTerm.toLowerCase() === "" ? item : item.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-                }
-            }).map((item, i) => (
-                <div key={i}>
-                    <Country item={item} />
-                </div>
-            ))} */}
+
             {countries.filter((item) => {
                 // Filter by search term
                 const searchMatch = searchTerm.toLowerCase() === ""

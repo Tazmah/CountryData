@@ -1,7 +1,7 @@
 
 import { ArrowBack } from "@mui/icons-material"
 import { Box, Button } from "@mui/material"
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom"
 import { fetchFromApi } from './utils/fetchFromApi'
 import DynamicData from "./DynamicData";
@@ -17,7 +17,7 @@ const SpecificCountry = () => {
         setCountryInfo(data)
     }
 
-    useEffect(() => {
+    useMemo(() => {
         getData()
     }, [])
 

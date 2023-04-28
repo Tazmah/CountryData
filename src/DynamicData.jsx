@@ -1,5 +1,5 @@
 import { Box, Button, CardContent, CardMedia, Stack, Typography } from '@mui/material'
-import React, { useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 
 const DynamicData = ({ countryInfo }) => {
 
