@@ -31,7 +31,8 @@ const DynamicData = ({ countryInfo }) => {
             <CardContent
                 sx={{
                     color: "#fff",
-                    width: "100%"
+                    width: "100%",
+                    textAlign: { sx: "center" }
                 }}
             >
 
@@ -48,7 +49,7 @@ const DynamicData = ({ countryInfo }) => {
                 >
                     <Box sx={{ width: "100%" }}>
                         <Typography variant="h6" >
-                            Native Name: {common}
+                            Native Name: {(!nativename) ? common : nativename}
                         </Typography>
                         <Typography variant="h6" >
                             Population: {population}
@@ -82,25 +83,34 @@ const DynamicData = ({ countryInfo }) => {
                     marginTop: "30px",
                 }}>
 
-                    <Box sx={{
-                        display: "flex",
-                        flexDirection: { sx: "column", md: "row" },
-                        gap: "15px"
-                    }}>
+                    <Stack
+                        sx={{
+                            display: "flex",
+                            flexDirection: { sx: "column", md: "row" },
+                            gap: "5px",
+                            width: "100%",
+                            // justifyContent: "center",
+                            alignItems: { sx: "center" }
+                        }}
+                    >
                         {borders && <Typography variant="h6" >
                             Border Countries:
                         </Typography>}
-                        {borders && borders.map((border) => (
-                            <Button variant="contained" sx={{
+                        {borders && borders.map((border, index) => (
+                            <Button key={index} variant="contained" sx={{
                                 background: "hsl(209, 23%, 22%)",
                                 display: "flex",
                                 gap: 2,
-                                marginBottom: "15px"
+                                marginBottom: "15px",
+                                ":hover": {
+                                    bgcolor: "hsl(209, 20%, 18%)",
+                                    color: "white"
+                                }
                             }}>
                                 {border}
                             </Button>
                         ))}
-                    </Box>
+                    </Stack>
                 </Box>
             </CardContent>
         </Stack>

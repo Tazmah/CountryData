@@ -6,7 +6,8 @@ import { fetchFromApi } from './utils/fetchFromApi'
 
 const Feed = () => {
     const [countries, setCountries] = useState([])
-    const [searchTerm, setSearchTerm] = useState([])
+    const [searchTerm, setSearchTerm] = useState("")
+    const [select, setSelect] = useState("")
     const getData = async () => {
         const data = await fetchFromApi("all")
         setCountries(data)
@@ -15,7 +16,6 @@ const Feed = () => {
     useEffect(() => {
         getData()
     }, [countries])
-
     return (
         <Box
             sx={{
@@ -27,8 +27,8 @@ const Feed = () => {
             p={4}
 
         >
-            <Explore searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-            <Countries countries={countries} setCountries={setCountries} />
+            <Explore searchTerm={searchTerm} setSearchTerm={setSearchTerm} select={select} setSelect={setSelect} />
+            <Countries countries={countries} setCountries={setCountries} searchTerm={searchTerm} select={select} />
         </Box>
     )
 }

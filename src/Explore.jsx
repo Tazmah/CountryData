@@ -4,7 +4,7 @@ import React from 'react'
 import { fetchFromApi } from './utils/fetchFromApi'
 import { useNavigate } from 'react-router-dom'
 
-const Explore = ({ searchTerm, setSearchTerm }) => {
+const Explore = ({ searchTerm, setSearchTerm, select, setSelect }) => {
 
     const navigate = useNavigate()
 
@@ -56,7 +56,7 @@ const Explore = ({ searchTerm, setSearchTerm }) => {
                 border: "none",
                 outline: "none",
             }}>
-                {/* <InputLabel
+                <InputLabel
                     id="demo-simple-select-label"
                     sx={{
                         border: "none",
@@ -64,20 +64,22 @@ const Explore = ({ searchTerm, setSearchTerm }) => {
                     }}
                 >
                     Filter By Region
-                </InputLabel> */}
-                {/* <Select
+                </InputLabel>
+                <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    // value={age}
+                    value={select}
                     label="Filter By Region"
-                // onChange={handleChange}
+                    onChange={((e) => {
+                        setSelect(e.target.value)
+                    })}
                 >
                     <MenuItem value="Africa">Africa</MenuItem>
                     <MenuItem value="America">America</MenuItem>
                     <MenuItem value="Asia">Asia</MenuItem>
                     <MenuItem value="Europe">Europe</MenuItem>
                     <MenuItem value="Oceania">Oceania</MenuItem>
-                </Select> */}
+                </Select>
             </FormControl>
 
         </Stack>

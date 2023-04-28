@@ -4,7 +4,7 @@ import Country from './Country'
 import { fetchFromApi } from './utils/fetchFromApi'
 import { useState, useEffect } from 'react'
 
-const Countries = ({ countries, setcountries }) => {
+const Countries = ({ countries, setcountries, searchTerm, select }) => {
     return (
         <Stack
             justifyContent="space-between"
@@ -16,7 +16,29 @@ const Countries = ({ countries, setcountries }) => {
             }}
         >
 
-            {countries.map((item, i) => (
+            {/* {countries.filter((item) => {
+                {
+                    return searchTerm.toLowerCase() === "" ? item : item.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+                }
+            }).map((item, i) => (
+                <div key={i}>
+                    <Country item={item} />
+                </div>
+            ))} */}
+            {countries.filter((item) => {
+                // Filter by search term
+                const searchMatch = searchTerm.toLowerCase() === ""
+                    ? true
+                    : item.name.common.toLowerCase().includes(searchTerm.toLowerCase());
+
+                // Filter by continent
+                const continentMatch = select === ""
+                    ? true
+                    : item.region === select;
+
+                // Return whether both conditions are true
+                return searchMatch && continentMatch;
+            }).map((item, i) => (
                 <div key={i}>
                     <Country item={item} />
                 </div>
@@ -24,5 +46,5 @@ const Countries = ({ countries, setcountries }) => {
         </Stack>
     )
 }
-
+// || select.toLowerCase() === "" ? item.continents[0].toLowerCase().includes(select.toLowerCase())
 export default Countries
