@@ -14,11 +14,13 @@ const Footer = () => {
             justifyContent: "center",
             gap: "15px"
         }}>
-            <Typography variant="h6" sx={{
-                color: theme.palette.text.main
-            }}>
-                Made With Love By Hamza Codes
-            </Typography>
+            <Link to="https://youtube.com/@HamzaCodes">
+                <Typography variant="h6" sx={{
+                    color: theme.palette.text.main
+                }}>
+                    Made With Love By Hamza Codes
+                </Typography>
+            </Link>
             <Link to="https://www.frontendmentor.io/">
                 <Typography variant="h6" sx={{
                     color: theme.palette.text.main
