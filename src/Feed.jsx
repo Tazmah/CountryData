@@ -3,8 +3,10 @@ import Explore from './Explore'
 import Countries from './Countries'
 import { useMemo, useState } from 'react'
 import { fetchFromApi } from './utils/fetchFromApi'
+import { useTheme } from '@mui/material/styles';
 
 const Feed = () => {
+    const theme = useTheme()
     const [countries, setCountries] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
     const [select, setSelect] = useState("")
@@ -19,7 +21,7 @@ const Feed = () => {
     return (
         <Box
             sx={{
-                background: "hsl(207, 26%, 17%)",
+                background: theme.palette.primary.main,
                 display: "flex",
                 flexDirection: "column",
                 gap: "20px"

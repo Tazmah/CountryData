@@ -1,7 +1,6 @@
 import { Search } from '@mui/icons-material'
 import { FormControl, InputLabel, MenuItem, Paper, Select, Stack } from '@mui/material'
 import React from 'react'
-import { fetchFromApi } from './utils/fetchFromApi'
 import { useNavigate } from 'react-router-dom'
 
 const Explore = ({ searchTerm, setSearchTerm, select, setSelect }) => {

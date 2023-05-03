@@ -1,16 +1,17 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Paper, Typography } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useTheme } from '@mui/material';
 
 const Country = ({ item: { name: { common }, capital, region, population, flags: { svg } } }) => {
 
-
+    const theme = useTheme()
     return (
         <Card>
             <Link to={`/country/${common}`}>
                 <CardMedia
                     sx={{
-                        background: "hsl(209, 23%, 22%)",
+                        background: theme.palette.primary.main,
                         height: 140,
                         border: "none",
                         outline: "none",
@@ -28,22 +29,30 @@ const Country = ({ item: { name: { common }, capital, region, population, flags:
             </Link>
             <CardContent
                 sx={{
-                    background: "hsl(209, 23%, 22%)",
-                    color: "#fff"
+                    background: theme.palette.primary.main,
+                    color: theme.palette.primary.main,
                 }}
             >
                 <Link to={`/country/${common}`}>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h5" component="div" sx={{
+                        color: theme.palette.text.main,
+                    }}>
                         {common}
                     </Typography>
                 </Link>
-                <Typography variant="body2" >
+                <Typography variant="body2" sx={{
+                    color: theme.palette.text.main,
+                }}>
                     Population: {population}
                 </Typography>
-                <Typography variant="body2" >
+                <Typography variant="body2" sx={{
+                    color: theme.palette.text.main,
+                }}>
                     Region: {region}
                 </Typography>
-                <Typography variant="body2" >
+                <Typography variant="body2" sx={{
+                    color: theme.palette.text.main,
+                }}>
                     Capital: {capital}
                 </Typography>
             </CardContent>

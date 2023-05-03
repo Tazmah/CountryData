@@ -1,8 +1,9 @@
 import { Box, Button, CardContent, CardMedia, Stack, Typography } from '@mui/material'
 import React, { useMemo } from 'react'
+import { useTheme } from '@mui/material';
 
 const DynamicData = ({ countryInfo }) => {
-
+    const theme = useTheme()
     const sortedData = useMemo(() => {
         return countryInfo;
     }, [countryInfo]);
@@ -17,7 +18,7 @@ const DynamicData = ({ countryInfo }) => {
             display: "flex",
             flexDirection: { sx: "column", md: "row" },
             justifyContent: "space-between",
-            gap: "50px"
+            gap: "50px",
         }}>
             <CardMedia
                 sx={{
@@ -30,9 +31,10 @@ const DynamicData = ({ countryInfo }) => {
             />
             <CardContent
                 sx={{
-                    color: "#fff",
                     width: "100%",
-                    textAlign: { sx: "center" }
+                    textAlign: { sx: "center" },
+                    color: theme.palette.text.main,
+                    p: 4,
                 }}
             >
 
@@ -98,7 +100,8 @@ const DynamicData = ({ countryInfo }) => {
                         </Typography>}
                         {borders && borders.map((border, index) => (
                             <Button key={index} variant="contained" sx={{
-                                background: "hsl(209, 23%, 22%)",
+                                color: theme.palette.primary.main,
+                                background: theme.palette.text.main,
                                 display: "flex",
                                 gap: 2,
                                 marginBottom: "15px",
@@ -107,6 +110,16 @@ const DynamicData = ({ countryInfo }) => {
                                     color: "white"
                                 }
                             }}>
+                                {/* <Button key={index} variant="contained" sx={{
+                                background: "hsl(209, 23%, 22%)",
+                                display: "flex",
+                                gap: 2,
+                                marginBottom: "15px",
+                                ":hover": {
+                                    bgcolor: "hsl(209, 20%, 18%)",
+                                    color: "white"
+                                }
+                            }}> */}
                                 {border}
                             </Button>
                         ))}
