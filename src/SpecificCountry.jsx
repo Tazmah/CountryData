@@ -25,7 +25,7 @@ const SpecificCountry = () => {
         <Box sx={{
             background: theme.palette.primary.main,
             p: 4,
-            minHeight: "92vh"
+            minHeight: "82vh"
         }}>
 
             <Link to={"/"}>
