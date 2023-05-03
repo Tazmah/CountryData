@@ -15,7 +15,7 @@ const Country = ({ item: { name: { common }, capital, region, population, flags:
                         height: 140,
                         border: "none",
                         outline: "none",
-                        objectFit: "fill"
+                        // objectFit: "fill"
                     }}
 
                 >
@@ -23,6 +23,10 @@ const Country = ({ item: { name: { common }, capital, region, population, flags:
                         src={svg}
                         alt=""
                         title={common}
+                        width="100%"
+                        style={{
+                            background: theme.palette.text.main,
+                        }}
                     />
                 </CardMedia>
 
