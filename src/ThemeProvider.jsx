@@ -19,7 +19,9 @@ function ThemeProviderWrapper(props) {
 
     return (
         <ThemeContext.Provider value={{ toggleTheme }}>
-            <ThemeProvider theme={currentTheme}>{props.children}</ThemeProvider>
+            <ThemeProvider theme={currentTheme}>
+                {props.children}
+            </ThemeProvider>
         </ThemeContext.Provider>
     );
 }
